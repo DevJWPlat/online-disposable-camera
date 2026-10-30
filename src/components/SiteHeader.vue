@@ -1,7 +1,6 @@
 <script setup>
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import brandLogo from '@/assets/brand/logo-long.png'
-import brandIcon from '@/assets/brand/icon.png'
 import { navItems } from '@/data/site.js'
 
 const mobileMenuOpen = ref(false)
@@ -30,7 +29,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <header class="site-header mx-auto border-b border-black/10 py-[28px] max-[620px]:w-[calc(100%-28px)] max-[620px]:py-[18px]">
+  <header :class="{ 'menu-is-open': mobileMenuOpen }" class="site-header mx-auto border-b border-black/10 py-[28px] max-[620px]:w-[calc(100%-28px)] max-[620px]:py-[18px]">
     <div class="wrapper flex items-center justify-between">
       <a class="brand flex w-[230px] max-[620px]:w-[176px]" href="#top" aria-label="Online Disposable Camera home">
         <img class="block h-auto w-full" :src="brandLogo" alt="Online Disposable Camera" />
@@ -58,7 +57,7 @@ onBeforeUnmount(() => {
     <aside v-if="mobileMenuOpen" id="mobile-navigation" class="mobile-menu" aria-label="Mobile navigation">
       <div class="flex items-center justify-between border-b border-black/10 pb-[20px]">
         <span class="text-[12px] font-extrabold tracking-[0.2em]">MENU</span>
-        <img class="h-[48px] w-[48px]" :src="brandIcon" alt="" aria-hidden="true" />
+        
       </div>
       <nav class="mt-[22px] flex flex-col">
         <a v-for="item in navItems" :key="item[0]" class="border-b border-black/10 py-[22px] text-[clamp(30px,7vw,52px)] font-bold tracking-[-0.04em]" :href="item[1]" @click="closeMobileMenu">{{ item[0] }}</a>
@@ -69,3 +68,17 @@ onBeforeUnmount(() => {
     </aside>
   </Transition>
 </template>
+
+
+<style scoped>
+/* While the menu is open the header floats above the drawer, so the hamburger
+   stays exactly where it was and becomes the close button. */
+.site-header.menu-is-open { z-index: 60; border-color: transparent; }
+.site-header.menu-is-open .brand { visibility: hidden; }
+.site-header .menu-toggle.is-open {
+  position: relative;
+  top: auto;
+  right: auto;
+  background: #fff;
+}
+</style>

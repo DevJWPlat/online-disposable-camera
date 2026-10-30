@@ -1,92 +1,105 @@
-<template>
-  <section id="how-it-works" class="how-banner border-y border-black/10 bg-white/45">
-    <div class="wrapper py-12">
-      <div class="flex justify-between gap-12 align-center">
-        <div class="how-banner-copy">
-          <p class="section-kicker">HOW IT WORKS</p>
-          <h2>Simple for you.<br />Even simpler for your guests.</h2>
-        </div>
+<script setup>
+const steps = [
+  { icon: 'fa-solid fa-qrcode', title: 'Share', text: 'Put your QR code on the tables or send guests the link.' },
+  { icon: 'fa-solid fa-camera', title: 'Snap', text: 'Guests take up to 25 photos each, straight from their phone.' },
+  { icon: 'fa-solid fa-images', title: 'Reveal', text: 'Your private gallery opens when you choose, ready to download.' },
+]
+</script>
 
-        <div class="how-steps">
-          <div class="how-step">
-            <span class="how-step-number">1</span>
-            <div class="icon">
-              <i class="fa-light fa-qrcode how-arrow" aria-hidden="true"></i>
-            </div>
-            <div class="content">
-              <strong>Share</strong>
-            </div>
-            <div class="text">
-              <p>Give your guests the event link or QR code.</p>
-            </div>
-          </div>
-          <i class="fa-light fa-chevron-right how-arrow" aria-hidden="true"></i>
-          <div class="how-step">
-            <span class="how-step-number">2</span>
-            <div class="icon">
-              <i class="fa-regular fa-camera" aria-hidden="true"></i>
-            </div>
-            <div class="content">
-              <strong>Snap</strong>
-            </div>
-            <div class="text">
-              <p>They take their photos<br />(25 as standard).</p>
-            </div>
-          </div>
-          <i class="fa-light fa-chevron-right how-arrow" aria-hidden="true"></i>
-          <div class="how-step">
-            <div class="icon">
-              <i class="fa-regular fa-image" aria-hidden="true"></i>
-            </div>
-            <span class="how-step-number">3</span>
-            <div class="content">
-              <strong>Reveal</strong>
-            </div>
-            <div class="text">
-              <p>You get a private gallery<br />to relive all the moments.</p>
-            </div>
-          </div>
-        </div>
+<template>
+  <section id="how-it-works" class="how">
+    <div class="wrapper how-grid">
+      <div class="how-intro">
+        <p class="section-kicker">HOW IT WORKS</p>
+        <h2>Simple for you.<br />Even simpler for your guests.</h2>
       </div>
+
+      <ol class="how-steps">
+        <li v-for="(step, index) in steps" :key="step.title">
+          <div class="how-icon">
+            <i :class="step.icon" aria-hidden="true"></i>
+            <span>{{ index + 1 }}</span>
+          </div>
+          <div>
+            <strong>{{ step.title }}</strong>
+            <p>{{ step.text }}</p>
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 </template>
 
-<style scoped lang="scss">
-.how-banner-copy {
-  max-width: max-content;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 40px;
-  font-weight: 400;
-  line-height: 1.02;
-  letter-spacing: -2px;
-  width: 840px;
-}
-.how-steps {
-  width: 100%;
+<style scoped>
+.how { border-block: 1px solid rgba(16, 16, 16, .1); background: rgba(255, 255, 255, .45); padding: 52px 0; }
+
+.how-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 2fr);
+  align-items: center;
+  gap: 56px;
 }
 
-.how-step {
-  position: relative;
-  .icon {
-    svg {
-      font-size: 50px;
-    }
-  }
-  .content {
-    strong {
-      font-size: 25px;
-    }
-  }
-  .text {
-    p {
-      font-size: 14px;
-    }
-  }
+.how-intro .section-kicker { margin-bottom: 10px; }
+
+.how-intro h2 {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(28px, 2.6vw, 38px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.05em;
 }
-.how-step-number {
+
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+}
+
+.how-steps li { display: flex; align-items: flex-start; gap: 16px; min-width: 0; }
+
+.how-icon {
+  position: relative;
+  display: grid;
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  place-items: center;
+  border: 1px solid rgba(16, 16, 16, .1);
+  border-radius: 18px;
+  background: #fff;
+  font-size: 22px;
+}
+
+.how-icon span {
   position: absolute;
-  top: -20px;
-  left: -20px;
+  top: -8px;
+  right: -8px;
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border-radius: 50%;
+  background: #7437ff;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.how-steps strong { display: block; font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 800; letter-spacing: -0.03em; }
+.how-steps p { margin: 4px 0 0; color: #68645f; font-size: 14px; line-height: 1.5; }
+
+@media (max-width: 1000px) {
+  .how-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+}
+
+@media (max-width: 700px) {
+  .how { padding: 44px 0; }
+  .how-steps { grid-template-columns: minmax(0, 1fr); gap: 24px; }
 }
 </style>

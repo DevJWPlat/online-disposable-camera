@@ -10,10 +10,10 @@ import brandIcon from '@/assets/brand/icon.png'
 
       <div class="coming-soon-copy">
         <p class="coming-soon-kicker">THE SITE IS NEARLY READY</p>
-        <h1>Disposable camera vibes, straight from your phone.</h1>
+        <h1 style="padding-bottom: 24px;">Disposable camera vibes, straight from your phone.</h1>
         <p>
-          A simple disposable-camera experience for weddings, parties, hen dos and events —
-          no app download required.
+          A simple disposable-camera experience for weddings, parties, hen dos and events.
+          <b>No app download required.</b>
         </p>
 
         <a class="coming-soon-cta" href="mailto:hello@onlinedisposablecamera.co.uk">

@@ -31,12 +31,25 @@ export const included = [
 ]
 
 export const faqs = [
-  ['Do guests need to download an app?', 'No. Guests open your link or scan your QR code in their normal browser. Nothing needs to be installed.'],
-  ['How many photos can each guest take?', '25 photos per guest is the standard setup. If you want a different limit, just ask and I can tailor it to the event.'],
-  ['When can we see the photos?', 'You choose when the gallery opens. Most couples choose the morning after, but it can be changed to suit the event.'],
-  ['Does it work on iPhone and Android?', 'Yes. The experience is designed mobile-first for modern iPhones and Android phones, with camera and flash behaviour handled in-browser.'],
-  ['Can the design match our wedding or event?', 'Yes. You can choose a base theme, or go fully custom around invitations, colours, typography, venue styling, a hen theme, birthday concept or brand.'],
-  ['Do we get our own link?', 'Yes. Standard hosted events can use onlinedisposablecamera.co.uk/your-event-name. A dedicated custom domain can also be arranged.'],
-  ['Can we download all the photos?', 'Yes. The private admin gallery supports selecting photos and downloading them as a ZIP.'],
-  ['Can this be used for something other than a wedding?', 'Definitely. Hen dos, birthdays, parties, corporate events and other celebrations can all use the same camera platform with different styling.'],
+  ['Do guests need to download an app?', 'No. Guests scan your QR code or open your link, and the camera opens straight in their normal browser. Nothing to install and no account to create.'],
+  ['Does it work on iPhone and Android?', 'Yes. It’s built for modern iPhones and Android phones, including the flash on the back camera where the phone supports it.'],
+  ['How many photos can each guest take?', '25 as standard, just like a real disposable camera. If you’d like more or fewer, just ask and I’ll set it up for your event.'],
+  ['When can we see the photos?', 'Whenever you choose. Most couples pick the morning after, so the photos stay a surprise until then.'],
+  ['Who can see the photos?', 'Only you. Photos stay hidden until your gallery opens, and only your private login can see them. If you want, you can switch on a secret guest gallery link, and switch it off again at any time.'],
+  ['What if the venue has poor signal?', 'Photos upload as they’re taken, so guests need mobile signal or the venue Wi-Fi. If a photo doesn’t send, it isn’t taken off their roll, so they can simply try again.'],
+  ['Can we download all the photos?', 'Yes. Select as many as you like, or all of them, and download them as one ZIP file. It works on iPhone too.'],
+  ['How long are the photos kept?', 'Your gallery stays online for three months after the event. You can download everything at any time, and if you need longer, just ask.'],
+  ['Can the design match our wedding or event?', 'Yes. Pick a ready-made theme and add your names, date and photos, or go fully custom with a design built around your invitations, colours or theme.'],
+  ['Do we get our own link?', 'Yes. Every event gets its own link, like your-event.onlinedisposablecamera.co.uk, plus a QR code to print. A custom domain can be arranged too.'],
+  ['How far in advance should we book?', 'Ready-made themes can usually be set up within a few days. For a fully custom design, get in touch at least four weeks before your event.'],
+  ['How do we pay?', 'Once we’ve agreed the details, I’ll send you a secure payment link. You pay once per event, with no subscription.'],
+  ['Is it just for weddings?', 'Not at all. Hen dos, birthdays, anniversaries, parties and work events all work brilliantly, each with its own look.'],
+]
+
+export const contactEmail = 'hello@onlinedisposablecamera.co.uk'
+
+// Add your profile URLs here and the icons appear in the footer. Leave blank to hide.
+export const socialLinks = [
+  { name: 'Instagram', icon: 'fa-brands fa-instagram', url: '' },
+  { name: 'TikTok', icon: 'fa-brands fa-tiktok', url: '' },
 ]
