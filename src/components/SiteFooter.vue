@@ -42,7 +42,7 @@ function backToTop() {
           <p class="footer-heading">Get in touch</p>
           <a :href="`mailto:${contactEmail}`">{{ contactEmail }}</a>
           <a href="#contact">Send an enquiry</a>
-          <p class="footer-note">I usually reply within a day.</p>
+          <p class="footer-note">I reply within 3 working days.</p>
         </div>
       </div>
 

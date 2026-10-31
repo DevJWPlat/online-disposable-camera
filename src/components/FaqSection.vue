@@ -19,11 +19,11 @@ function toggle(index) {
           <h2>Questions, answered.</h2>
           <p class="faq-lead">Everything people usually ask before booking a camera for their event.</p>
 
-          <div class="faq-ask">
+          <div class="faq-ask faq-ask--desktop">
             <i class="fa-solid fa-comment-dots" aria-hidden="true"></i>
             <div>
               <strong>Still got a question?</strong>
-              <p>Send it over and I’ll come back to you, usually within a day.</p>
+              <p>Send it over and I’ll get back to you within 3 working days.</p>
               <button type="button" @click="startEnquiry({})">Ask a question <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
             </div>
           </div>
@@ -47,6 +47,15 @@ function toggle(index) {
               <div><p>{{ faq[1] }}</p></div>
             </div>
           </article>
+
+          <div class="faq-ask faq-ask--mobile">
+            <i class="fa-solid fa-comment-dots" aria-hidden="true"></i>
+            <div>
+              <strong>Still got a question?</strong>
+              <p>Send it over and I’ll get back to you within 3 working days.</p>
+              <button type="button" @click="startEnquiry({})">Ask a question <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -165,7 +174,12 @@ function toggle(index) {
   line-height: 1.7;
 }
 
+/* The "Still got a question?" card shows beside the list on desktop and after it on mobile. */
+.faq-ask--mobile { display: none; }
+
 @media (max-width: 900px) {
+  .faq-ask--desktop { display: none; }
+  .faq-ask--mobile { display: flex; max-width: none; }
   .faq-layout { grid-template-columns: 1fr; gap: 40px; }
   .faq-intro { position: static; }
   .faq-answer p { padding-right: 0; }

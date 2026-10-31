@@ -8,7 +8,7 @@ const status = ref('idle') // idle | sending | sent | error
 const errorMessage = ref('')
 
 const nextSteps = [
-  { title: 'I reply within a day', text: 'With ideas for your design and the right setup for your guests.' },
+  { title: 'I’ll reply within 3 working days', text: 'With ideas for your design and the right setup for your guests.' },
   { title: 'You approve and pay', text: 'Once you’re happy, I send a secure payment link. Pay once, no subscription.' },
   { title: 'Get your link and QR code', text: 'Ready to print on invites, table cards and signs.' },
 ]
@@ -60,7 +60,7 @@ async function submitContact() {
           <div v-if="status === 'sent'" class="sent">
             <span class="sent-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
             <h3>Thanks, {{ enquiry.name.split(' ')[0] || 'that’s sent' }}!</h3>
-            <p>Your enquiry has arrived. I’ll reply to <strong>{{ enquiry.email }}</strong> within a day with the next steps for your camera.</p>
+            <p>Your enquiry has arrived. I’ll aim to reply to <strong>{{ enquiry.email }}</strong> within 3 working days with the next steps for your camera.</p>
           </div>
 
           <form v-else class="form" novalidate @submit.prevent="submitContact">
