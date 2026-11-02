@@ -1,5 +1,6 @@
 <script setup>
 import PhoneFrame from '@/components/PhoneFrame.vue'
+import { startUrl } from '@/data/site.js'
 
 function scrollTo(id) {
   document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -23,8 +24,8 @@ const heroFeatures = [
         <p class="hero-text">Give your guests a simple way to capture your event. They scan a QR code, take their photos, and you get a private gallery to relive every moment.</p>
 
         <div class="hero-actions">
-          <button class="btn-primary" type="button" @click="scrollTo('#themes')">View themes <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
-          <button class="btn-secondary" type="button" @click="scrollTo('#contact')">Get in touch</button>
+          <a class="btn-primary" :href="startUrl()" target="_blank" rel="noopener">Get started <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          <button class="btn-secondary" type="button" @click="scrollTo('#themes')">View themes</button>
         </div>
 
         <ul class="hero-features">

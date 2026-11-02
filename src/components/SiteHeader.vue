@@ -1,13 +1,9 @@
 <script setup>
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import brandLogo from '@/assets/brand/logo-long.png'
-import { navItems } from '@/data/site.js'
+import { appUrl, navItems } from '@/data/site.js'
 
 const mobileMenuOpen = ref(false)
-
-function scrollTo(id) {
-  document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' })
-}
 
 function closeMobileMenu() {
   mobileMenuOpen.value = false
@@ -40,7 +36,8 @@ onBeforeUnmount(() => {
           <a v-for="item in navItems" :key="item[0]" class="transition-opacity hover:opacity-50" :href="item[1]">{{ item[0] }}</a>
         </nav>
   
-        <button class="header-cta min-h-[46px] rounded-full bg-[#7437ff] px-[21px] font-bold text-white transition hover:-translate-y-[2px] hover:bg-[#5f22f4] max-[980px]:hidden" type="button" @click="scrollTo('#contact')">Get in touch</button>
+        <a class="header-signin text-[14px] font-semibold transition-opacity hover:opacity-50 max-[980px]:hidden" :href="appUrl" target="_blank" rel="noopener">Sign in</a>
+        <a class="header-cta inline-flex min-h-[46px] items-center rounded-full bg-[#7437ff] px-[21px] font-bold text-white transition hover:-translate-y-[2px] hover:bg-[#5f22f4] max-[980px]:hidden" :href="`${appUrl}/events/new`" target="_blank" rel="noopener">Get started</a>
   
         <button class="menu-toggle" :class="{ 'is-open': mobileMenuOpen }" type="button" :aria-expanded="mobileMenuOpen" aria-controls="mobile-navigation" :aria-label="mobileMenuOpen ? 'Close menu' : 'Open menu'" @click="mobileMenuOpen = !mobileMenuOpen">
           <span></span><span></span><span></span>
@@ -62,9 +59,10 @@ onBeforeUnmount(() => {
       <nav class="mt-[22px] flex flex-col">
         <a v-for="item in navItems" :key="item[0]" class="border-b border-black/10 py-[22px] text-[clamp(30px,7vw,52px)] font-bold tracking-[-0.04em]" :href="item[1]" @click="closeMobileMenu">{{ item[0] }}</a>
       </nav>
-      <button type="button" class="mt-auto flex min-h-[58px] items-center justify-between rounded-full bg-[#7437ff] px-[24px] font-bold text-white" @click="scrollTo('#contact'); closeMobileMenu()">
-        Get in touch <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-      </button>
+      <a class="mt-[22px] py-[10px] text-[17px] font-semibold" :href="appUrl" target="_blank" rel="noopener">Sign in to your events</a>
+      <a class="mt-auto flex min-h-[58px] items-center justify-between rounded-full bg-[#7437ff] px-[24px] font-bold text-white" :href="`${appUrl}/events/new`" target="_blank" rel="noopener">
+        Get started <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
     </aside>
   </Transition>
 </template>

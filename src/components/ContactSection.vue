@@ -9,7 +9,7 @@ const errorMessage = ref('')
 
 const nextSteps = [
   { title: 'I’ll reply within 3 working days', text: 'With ideas for your design and the right setup for your guests.' },
-  { title: 'You approve and pay', text: 'Once you’re happy, I send a secure payment link. Pay once, no subscription.' },
+  { title: 'You approve and pay', text: 'Once you’re happy, I send a secure payment link. Pay once per event.' },
   { title: 'Get your link and QR code', text: 'Ready to print on invites, table cards and signs.' },
 ]
 

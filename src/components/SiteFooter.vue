@@ -1,8 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import brandLogo from '@/assets/brand/logo-long.png'
-import { contactEmail, navItems, socialLinks } from '@/data/site.js'
-import { startEnquiry } from '@/data/enquiry.js'
+import { appUrl, contactEmail, navItems, socialLinks } from '@/data/site.js'
 
 const currentYear = new Date().getFullYear()
 const socials = computed(() => socialLinks.filter((link) => link.url))
@@ -17,9 +16,9 @@ function backToTop() {
     <div class="wrapper">
       <div class="footer-hero">
         <p class="footer-line">Every guest gets a camera.<br /><span>You get every photo.</span></p>
-        <button class="footer-cta" type="button" @click="startEnquiry({})">
-          Book your camera <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </button>
+        <a class="footer-cta" :href="`${appUrl}/events/new`" target="_blank" rel="noopener">
+          Get started <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
       </div>
 
       <div class="footer-main">
@@ -42,6 +41,7 @@ function backToTop() {
           <p class="footer-heading">Get in touch</p>
           <a :href="`mailto:${contactEmail}`">{{ contactEmail }}</a>
           <a href="#contact">Send an enquiry</a>
+          <a :href="appUrl" target="_blank" rel="noopener">Sign in to your events</a>
           <p class="footer-note">I reply within 3 working days.</p>
         </div>
       </div>

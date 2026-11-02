@@ -5,6 +5,7 @@ import HowItWorksBanner from '@/components/HowItWorksBanner.vue'
 import ThemesSection from '@/components/ThemesSection.vue'
 import CustomThemesSection from '@/components/CustomThemesSection.vue'
 import BothSidesSection from '@/components/BothSidesSection.vue'
+import KindWordsSection from '@/components/KindWordsSection.vue'
 import PricingSection from '@/components/PricingSection.vue'
 import FaqSection from '@/components/FaqSection.vue'
 import ContactSection from '@/components/ContactSection.vue'
@@ -24,6 +25,7 @@ const SHOW_COMING_SOON = false
     <ThemesSection />
     <CustomThemesSection />
     <BothSidesSection />
+    <KindWordsSection />
     <PricingSection />
     <FaqSection />
     <ContactSection />

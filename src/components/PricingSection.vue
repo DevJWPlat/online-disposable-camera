@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue'
-import { guestTiers } from '@/data/site.js'
+import { appUrl, guestTiers, startUrl } from '@/data/site.js'
 import { startEnquiry } from '@/data/enquiry.js'
 
 // Default to 100 guests: a typical wedding, and a sensible middle price to anchor on.
@@ -27,7 +27,8 @@ const customIncludes = [
 ]
 
 function chooseStandard() {
-  startEnquiry({ guests: tier.value.label })
+  if (isQuote.value) startEnquiry({ guests: tier.value.label })
+  else window.open(startUrl({ guests: tier.value.guests }), '_blank', 'noopener')
 }
 </script>
 
@@ -39,7 +40,7 @@ function chooseStandard() {
           <p class="section-kicker text-[#9b82ff]">PRICING</p>
           <h2>One price.<br />Your whole event.</h2>
         </div>
-        <p>Pay once per event, based on roughly how many guests you’re expecting. No subscriptions and no hidden extras.</p>
+        <p>Pay once per event, based on roughly how many guests you’re expecting. Try it free first, and pay online when you’re ready. No hidden extras.</p>
       </div>
 
       <div class="plans">
@@ -75,7 +76,7 @@ function chooseStandard() {
           </ul>
 
           <button class="plan-cta" type="button" @click="chooseStandard">
-            {{ isQuote ? 'Get a quote' : `Book your camera for ${tier.price}` }}
+            {{ isQuote ? 'Get a quote' : `Get started for ${tier.price}` }}
             <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </button>
         </article>
@@ -102,11 +103,11 @@ function chooseStandard() {
           <i class="fa-solid fa-plus" aria-hidden="true"></i>
           <p><strong>Optional extras:</strong> more shots per guest, longer gallery storage and printed QR table cards.</p>
         </div>
-        <button type="button" @click="startEnquiry({ message: 'I’m interested in the yearly pass for multiple events.' })">
-          <span class="extras-badge">Coming soon</span>
-          Planning lots of events? Ask about a yearly pass
+        <a :href="appUrl" target="_blank" rel="noopener">
+          <span class="extras-badge">£149 a year</span>
+          Planning lots of events? Get the yearly pass
           <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </button>
+        </a>
       </div>
     </div>
   </section>
@@ -236,7 +237,7 @@ function chooseStandard() {
 .extras p { margin: 0; color: rgba(255, 255, 255, .65); font-size: 14px; line-height: 1.5; }
 .extras strong { color: #fff; }
 
-.extras button {
+.extras a {
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
@@ -248,8 +249,8 @@ function chooseStandard() {
   font-weight: 700;
 }
 
-.extras button i { transition: transform 180ms ease; }
-.extras button:hover i { transform: translateX(4px); }
+.extras a i { transition: transform 180ms ease; }
+.extras a:hover i { transform: translateX(4px); }
 
 .extras-badge {
   border-radius: 999px;
@@ -265,7 +266,7 @@ function chooseStandard() {
 @media (max-width: 1000px) {
   .plans { grid-template-columns: minmax(0, 1fr); }
   .extras { align-items: flex-start; flex-direction: column; }
-  .extras button { flex-wrap: wrap; text-align: left; }
+  .extras a { flex-wrap: wrap; text-align: left; }
 }
 
 @media (max-width: 620px) {

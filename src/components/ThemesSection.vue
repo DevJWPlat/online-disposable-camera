@@ -1,23 +1,32 @@
 <script setup>
 import PhoneFrame from '@/components/PhoneFrame.vue'
 import { startEnquiry } from '@/data/enquiry.js'
+import { startUrl } from '@/data/site.js'
 
 // Flat screenshots live in public/theme-screens/ (see the README there).
+// Starts a new event in the app with this theme already chosen.
+function openTheme(theme) {
+  window.open(startUrl({ theme: theme.key }), '_blank', 'noopener')
+}
+
 const themes = [
   {
     name: 'Classic Editorial',
+    key: 'classic-editorial',
     note: 'Clean typography, timeless layouts and a polished editorial feel.',
     bestFor: 'Best for weddings & anniversaries',
     screen: '/theme-screens/classic-editorial.png',
   },
   {
     name: 'Soft Film',
+    key: 'soft-film',
     note: 'Warm tones, tactile textures and a relaxed analogue-inspired look.',
     bestFor: 'Best for garden parties & birthdays',
     screen: '/theme-screens/soft-film.png',
   },
   {
     name: 'After Dark',
+    key: 'after-dark',
     note: 'Flash photography, bold contrast and a late-night party atmosphere.',
     bestFor: 'Best for hen dos & big nights out',
     screen: '/theme-screens/after-dark.png',
@@ -41,7 +50,7 @@ const themes = [
           v-for="theme in themes"
           :key="theme.name"
           class="theme-card"
-          @click="startEnquiry({ theme: theme.name })"
+          @click="openTheme(theme)"
         >
           <div class="theme-stage">
             <PhoneFrame :src="theme.screen" :alt="`${theme.name} disposable camera theme`" />
@@ -51,9 +60,9 @@ const themes = [
             <h3>{{ theme.name }}</h3>
             <p class="theme-note">{{ theme.note }}</p>
             <p class="theme-best">{{ theme.bestFor }}</p>
-            <button class="theme-link" type="button" @click.stop="startEnquiry({ theme: theme.name })">
+            <a class="theme-link" :href="startUrl({ theme: theme.key })" @click.stop target="_blank" rel="noopener">
               Choose this theme <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-            </button>
+            </a>
           </div>
         </article>
 

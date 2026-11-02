@@ -41,10 +41,18 @@ export const faqs = [
   ['How long are the photos kept?', 'Your gallery stays online for three months after the event. You can download everything at any time, and if you need longer, just ask.'],
   ['Can the design match our wedding or event?', 'Yes. Pick a ready-made theme and add your names, date and photos, or go fully custom with a design built around your invitations, colours or theme.'],
   ['Do we get our own link?', 'Yes. Every event gets its own link, like your-event.onlinedisposablecamera.co.uk, plus a QR code to print. A custom domain can be arranged too.'],
-  ['How far in advance should we book?', 'Ready-made themes can usually be set up within a few days. For a fully custom design, get in touch at least four weeks before your event.'],
-  ['How do we pay?', 'Once we’ve agreed the details, I’ll send you a secure payment link. You pay once per event, with no subscription.'],
+  ['How far in advance should we book?', 'Ready-made themes are ready in minutes: create your event, try the camera, then go live. For a fully custom design, get in touch at least four weeks before your event.'],
+  ['How do we pay?', 'Online by card, Apple Pay or Google Pay, when you’re ready to go live. You can set everything up and try the camera with 5 test photos first. Pay once per event, with nothing to renew.'],
+  ['What’s the yearly pass?', 'For anyone planning lots of events, like venues and planners. It’s £149 a year for unlimited events of up to 100 guests each, and bigger events just pay the difference. It renews yearly and you can cancel any time.'],
   ['Is it just for weddings?', 'Not at all. Hen dos, birthdays, anniversaries, parties and work events all work brilliantly, each with its own look.'],
 ]
+
+// The customer app: sign in, create an event, try it and pay.
+export const appUrl = 'https://app.onlinedisposablecamera.co.uk'
+export const startUrl = (params = {}) => {
+  const query = new URLSearchParams(params).toString()
+  return `${appUrl}/events/new${query ? `?${query}` : ''}`
+}
 
 export const contactEmail = 'hello@onlinedisposablecamera.co.uk'
 
@@ -53,3 +61,13 @@ export const socialLinks = [
   { name: 'Instagram', icon: 'fa-brands fa-instagram', url: '' },
   { name: 'TikTok', icon: 'fa-brands fa-tiktok', url: '' },
 ]
+
+// Real quotes from real customers, used with their permission. Use their own words.
+// The "Kind words" section stays hidden until there are at least two here.
+// Example:
+//   { quote: 'Our guests loved it and we got hundreds of photos we never would have seen.', name: 'Caz & Dan', event: 'Wedding', date: 'October 2026' },
+export const testimonials = [
+]
+
+// Optional: your Google Business Profile review link. Leave blank to hide the button.
+export const googleReviewsUrl = ''
