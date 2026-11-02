@@ -36,8 +36,10 @@ onBeforeUnmount(() => {
           <a v-for="item in navItems" :key="item[0]" class="transition-opacity hover:opacity-50" :href="item[1]">{{ item[0] }}</a>
         </nav>
   
-        <a class="header-signin text-[14px] font-semibold transition-opacity hover:opacity-50 max-[980px]:hidden" :href="appUrl" target="_blank" rel="noopener">Sign in</a>
-        <a class="header-cta inline-flex min-h-[46px] items-center rounded-full bg-[#7437ff] px-[21px] font-bold text-white transition hover:-translate-y-[2px] hover:bg-[#5f22f4] max-[980px]:hidden" :href="`${appUrl}/events/new`" target="_blank" rel="noopener">Get started</a>
+        <div class="header-buttons">
+          <a class="header-btn header-btn--outline" :href="appUrl" target="_blank" rel="noopener">Sign in</a>
+          <a class="header-btn header-btn--solid" :href="`${appUrl}/events/new`" target="_blank" rel="noopener">Get started</a>
+        </div>
   
         <button class="menu-toggle" :class="{ 'is-open': mobileMenuOpen }" type="button" :aria-expanded="mobileMenuOpen" aria-controls="mobile-navigation" :aria-label="mobileMenuOpen ? 'Close menu' : 'Open menu'" @click="mobileMenuOpen = !mobileMenuOpen">
           <span></span><span></span><span></span>
@@ -59,16 +61,69 @@ onBeforeUnmount(() => {
       <nav class="mt-[22px] flex flex-col">
         <a v-for="item in navItems" :key="item[0]" class="border-b border-black/10 py-[22px] text-[clamp(30px,7vw,52px)] font-bold tracking-[-0.04em]" :href="item[1]" @click="closeMobileMenu">{{ item[0] }}</a>
       </nav>
-      <a class="mt-[22px] py-[10px] text-[17px] font-semibold" :href="appUrl" target="_blank" rel="noopener">Sign in to your events</a>
-      <a class="mt-auto flex min-h-[58px] items-center justify-between rounded-full bg-[#7437ff] px-[24px] font-bold text-white" :href="`${appUrl}/events/new`" target="_blank" rel="noopener">
-        Get started <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-      </a>
+      <div class="menu-buttons">
+        <a class="menu-btn menu-btn--outline" :href="appUrl" target="_blank" rel="noopener">Sign in</a>
+        <a class="menu-btn menu-btn--solid" :href="`${appUrl}/events/new`" target="_blank" rel="noopener">
+          Get started <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
     </aside>
   </Transition>
 </template>
 
 
 <style scoped>
+/* Sign in and Get started. Styled here rather than with Tailwind classes,
+   because the site's base link styles (colour and font inherit) beat those. */
+.header-buttons { display: flex; align-items: center; gap: 10px; }
+.header-btn {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #7437ff;
+  border-radius: 999px;
+  padding: 0 21px;
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+}
+.header-btn:hover { transform: translateY(-2px); }
+.header-btn--outline { background: transparent; color: #7437ff; }
+.header-btn--outline:hover { background: #7437ff; color: #fff; }
+.header-btn--solid { background: #7437ff; color: #fff; }
+.header-btn--solid:hover { border-color: #5f22f4; background: #5f22f4; }
+
+/* Tablets and large phones: only Get started in the header (Sign in lives
+   in the menu), made a little smaller so everything fits on one line. */
+@media (max-width: 980px) {
+  .header-btn--outline { display: none; }
+}
+@media (max-width: 620px) {
+  .header-actions { gap: 10px; }
+  .header-btn { min-height: 42px; padding: 0 15px; font-size: 14px; }
+}
+/* Small phones: just the logo and the menu. Both buttons are in the menu. */
+@media (max-width: 549px) {
+  .header-buttons { display: none; }
+}
+
+.menu-buttons { display: grid; gap: 10px; margin-top: auto; }
+.menu-btn {
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid #7437ff;
+  border-radius: 999px;
+  padding: 0 24px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.menu-btn--outline { justify-content: center; background: transparent; color: #7437ff; }
+.menu-btn--solid { background: #7437ff; color: #fff; }
+
 /* While the menu is open the header floats above the drawer, so the hamburger
    stays exactly where it was and becomes the close button. */
 .site-header.menu-is-open { z-index: 60; border-color: transparent; }

@@ -41,7 +41,7 @@ const heroFeatures = [
           <PhoneFrame src="/showcase/sophie-landing.png" url="sophies-last-rodeo.party" alt="Sophie's Last Rodeo custom camera" />
         </div>
         <div class="hero-phone hero-phone--front">
-          <PhoneFrame src="/theme-screens/classic-editorial.png" url="caz-and-dan.onlinedisposablecamera.co.uk" alt="Caz and Dan's wedding camera" />
+          <PhoneFrame src="/theme-screens/classic-editorial.png" url="olivia-and-james.onlinedisposablecamera.co.uk" alt="Olivia and James's wedding camera" />
         </div>
 
         <p class="hero-note hero-note--left" aria-hidden="true">

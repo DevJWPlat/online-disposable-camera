@@ -36,12 +36,12 @@ const points = [
       <div class="compare">
         <figure class="compare-side">
           <div class="compare-phones compare-phones--pair compare-phones--mirror">
-            <div class="fan fan-back"><PhoneFrame src="/showcase/caz-camera.png" url="caz-and-dan.onlinedisposablecamera.co.uk" alt="Caz and Dan's camera screen" /></div>
-            <div class="fan fan-front"><PhoneFrame src="/theme-screens/classic-editorial.png" url="caz-and-dan.onlinedisposablecamera.co.uk" alt="Caz and Dan's wedding camera in the Classic Editorial theme" /></div>
+            <div class="fan fan-back"><PhoneFrame src="/showcase/classic-editorial-camera.png" url="olivia-and-james.onlinedisposablecamera.co.uk" alt="Olivia and James's camera screen" /></div>
+            <div class="fan fan-front"><PhoneFrame src="/theme-screens/classic-editorial.png" url="olivia-and-james.onlinedisposablecamera.co.uk" alt="Olivia and James's wedding camera in the Classic Editorial theme" /></div>
           </div>
           <figcaption>
             <span class="compare-label">Ready-made theme</span>
-            <strong>Caz &amp; Dan’s wedding</strong>
+            <strong>Olivia &amp; James’s wedding</strong>
             <small>Classic Editorial, from £14.99</small>
           </figcaption>
         </figure>
@@ -115,7 +115,7 @@ const points = [
 .compare-phones--pair:hover .fan-back { transform: translateX(36%) rotate(10deg); }
 .compare-phones--pair:hover .fan-front { transform: translateX(-32%) rotate(-5deg) translateY(-8px); }
 
-/* Caz & Dan's pair fans the other way, so both sides open out from the middle. */
+/* Olivia & James's pair fans the other way, so both sides open out from the middle. */
 .compare-phones--mirror .fan-back { transform: translateX(-28%) rotate(-7deg); }
 .compare-phones--mirror .fan-front { transform: translateX(26%) rotate(3deg); }
 .compare-phones--mirror:hover .fan-back { transform: translateX(-36%) rotate(-10deg); }

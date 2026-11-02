@@ -46,7 +46,7 @@ onBeforeUnmount(() => window.clearInterval(timer))
         <article class="side side--guest">
           <p class="side-label">For your guests</p>
           <div class="side-visual side-visual--phone">
-            <PhoneFrame src="/showcase/caz-camera.png" url="caz-and-dan.onlinedisposablecamera.co.uk" alt="The guest camera screen" />
+            <PhoneFrame src="/showcase/classic-editorial-camera.png" url="olivia-and-james.onlinedisposablecamera.co.uk" alt="The guest camera screen" />
           </div>
           <ul class="points">
             <li v-for="point in guestPoints" :key="point.title">
@@ -63,12 +63,12 @@ onBeforeUnmount(() => window.clearInterval(timer))
             <div class="dash" aria-label="Example organiser dashboard" role="img">
               <div class="dash-bar" aria-hidden="true">
                 <span></span><span></span><span></span>
-                <em>caz-and-dan.onlinedisposablecamera.co.uk/admin</em>
+                <em>olivia-and-james.onlinedisposablecamera.co.uk/admin</em>
               </div>
 
               <div class="dash-body">
                 <div class="dash-head">
-                  <small>CAZ &amp; DAN · 10.10.26</small>
+                  <small>OLIVIA &amp; JAMES · 14.08.27</small>
                   <strong>Overview</strong>
                 </div>
 
@@ -177,7 +177,7 @@ onBeforeUnmount(() => window.clearInterval(timer))
 .points span { display: block; margin-top: 3px; color: #68645f; font-size: 14px; line-height: 1.55; }
 .side--host .points span { color: rgba(255, 255, 255, .6); }
 
-/* Dashboard mock, styled after the real Caz & Dan admin */
+/* Dashboard mock, styled after the real organiser dashboard */
 .dash {
   width: min(100%, 440px);
   overflow: hidden;
